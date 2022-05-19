@@ -1,0 +1,15 @@
+apiVersion: rds.services.k8s.aws/v1alpha1
+kind: DBInstance
+metadata:
+  name: "pdb3"
+spec:
+  allocatedStorage: 20
+  dbInstanceClass: db.t3.large
+  dbInstanceIdentifier: "pdb3"
+  engine: postgres
+  engineVersion: "14"
+  masterUsername: "postgres"
+  masterUserPassword:
+    namespace: default
+    name: "pdb-password"
+    key: password
