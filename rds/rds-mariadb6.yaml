@@ -1,0 +1,15 @@
+apiVersion: rds.services.k8s.aws/v1alpha1
+kind: DBInstance
+metadata:
+  name: "mdb6"
+spec:
+  allocatedStorage: 20
+  dbInstanceClass: db.t3.large
+  dbInstanceIdentifier: "mdb6"
+  engine: mariadb
+  engineVersion: "10.6"
+  masterUsername: "admin"
+  masterUserPassword:
+    namespace: default
+    name: "pdb-password"
+    key: password
